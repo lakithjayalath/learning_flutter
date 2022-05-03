@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learning_fluttter/screens/contest_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -10,6 +11,7 @@ class LoginScreen extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.red,
+          title: const Center(child: Text("Login")),
         ),
         body: Center(
             child: SizedBox(
@@ -31,6 +33,7 @@ class LoginScreen extends StatelessWidget {
                 width: double.infinity,
               ),
               const TextField(
+                obscureText: true,
                 decoration: InputDecoration(
                   labelText: "Password",
                   contentPadding: EdgeInsets.symmetric(vertical: 16.0),
@@ -43,8 +46,11 @@ class LoginScreen extends StatelessWidget {
               ),
               ElevatedButton(
                 onPressed: () {
-                  // ignore: avoid_print
-                  print("pressed");
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => const ContestScreen(),
+                      ));
                 },
                 child: const Text("Login"),
                 style: ElevatedButton.styleFrom(
